@@ -49,6 +49,7 @@ const App = () => {
     setIsModalOpen(false);
   };
   const handleKeyPress = e => {
+
     if (e.code !== 'Escape') {
       return;
     }
@@ -66,7 +67,11 @@ const App = () => {
         <Button hendelPageClick={hendelPageClick} />
       )}
       {isModalOpen && (
-        <Modal onClose={closeModal} largeImageId={largeImageId} handleKeyPress={handleKeyPress} />
+        <Modal
+          onClose={closeModal}
+          largeImageId={largeImageId}
+          handleKeyPress={handleKeyPress}
+        />
       )}
     </>
   );
