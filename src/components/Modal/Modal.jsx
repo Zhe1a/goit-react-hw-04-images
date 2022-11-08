@@ -4,7 +4,9 @@ import s from './Modal.module.css';
 
 const Modal = ({ onClose, largeImageId }) => {
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyPress);
+ if(largeImageId){
+  window.addEventListener('keydown', handleKeyPress);
+ }
   }, [largeImageId]);
 
   const handleKeyPress = e => {
