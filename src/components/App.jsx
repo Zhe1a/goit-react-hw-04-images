@@ -66,7 +66,7 @@ const App = () => {
         <Button hendelPageClick={hendelPageClick} />
       )}
       {isModalOpen && (
-        <Modal onClose={closeModal} largeImageId={largeImageId} />
+        <Modal onClose={closeModal} largeImageId={largeImageId} handleKeyPress={handleKeyPress} />
       )}
     </>
   );

@@ -2,19 +2,13 @@ import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import s from './Modal.module.css';
 
-const Modal = ({ onClose, largeImageId }) => {
+const Modal = ({ onClose, largeImageId,handleKeyPress }) => {
   useEffect(() => {
  if(largeImageId){
   window.addEventListener('keydown', handleKeyPress);
  }
   }, [largeImageId]);
 
-  const handleKeyPress = e => {
-    if (e.code !== 'Escape') {
-      return;
-    }
-    onClose();
-  };
   return (
     <div
       className={s.overlay}
