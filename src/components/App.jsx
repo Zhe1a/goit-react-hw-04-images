@@ -49,7 +49,6 @@ const App = () => {
     setIsModalOpen(false);
   };
   const handleKeyPress = e => {
-
     if (e.code !== 'Escape') {
       return;
     }
