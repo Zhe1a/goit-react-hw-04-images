@@ -13,7 +13,6 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [totalPage, setTotalPage] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [perPage, setPerPage] = useState(12);
   const [largeImageId, setLargeImageId] = useState([]);
 
   useEffect(() => {
@@ -22,7 +21,7 @@ const App = () => {
     ArticlesApi(valueForm, page)
       .then(res => {
         setArticles(page === 1 ? res.hits : [...articles, ...res.hits]);
-        setTotalPage(Math.ceil(res.total / perPage));
+        setTotalPage(Math.ceil(res.total / 12));
       })
       .catch(error => {
         console.log(error.message);
@@ -45,15 +44,9 @@ const App = () => {
     setLargeImageId(props);
   };
   const closeModal = () => {
-    window.removeEventListener('keydown', handleKeyPress);
     setIsModalOpen(false);
   };
-  const handleKeyPress = e => {
-    if (e.code !== 'Escape') {
-      return;
-    }
-    closeModal();
-  };
+
 
   return (
     <>
@@ -69,7 +62,6 @@ const App = () => {
         <Modal
           onClose={closeModal}
           largeImageId={largeImageId}
-          handleKeyPress={handleKeyPress}
         />
       )}
     </>
