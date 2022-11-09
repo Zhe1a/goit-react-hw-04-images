@@ -20,7 +20,7 @@ const App = () => {
     setIsLoading(true);
     ArticlesApi(valueForm, page)
       .then(res => {
-        setArticles(page === 1 ? res.hits : [...articles, ...res.hits]);
+        setArticles(elm=> page === 1 ? res.hits : [...elm, ...res.hits]);
         setTotalPage(Math.ceil(res.total / 12));
       })
       .catch(error => {
